@@ -7,9 +7,13 @@
 
 import UIKit
 
+import RxSwift
 import SnapKit
 
-class MainViewController: BaseViewController {
+final class MainViewController: BaseViewController {
+    
+    private let viewModel: MainViewModel
+    private var disposeBag = DisposeBag()
     
     // MARK: UI
     private let mainScrollView: UIScrollView = {
@@ -33,6 +37,16 @@ class MainViewController: BaseViewController {
     private let dailyForecastView = DailyForecastView()
     private let weatherMapView = WeatherMapView()
     private let weatherExtraInfoView = WeatherExtraInfoView()
+    
+    // MARK: Initializers
+    init(viewModel: MainViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: Overrides
     override func setupViewHierarchy() {
@@ -82,15 +96,60 @@ class MainViewController: BaseViewController {
     
     override func setupInitialSetting() {
         view.backgroundColor = .lightGray
-        topView.setupData(.init(cityName: "Seoul", temperature: "-7", weather: "맑음", maximumTemperature: "-1", minimumTemperature: "-11"))
-        threeHourForecastView.setupData([.stub(), .stub(), .stub(), .stub(), .stub(), .stub(), .stub(), .stub()])
-        dailyForecastView.setupData([.stub(), .stub(), .stub(), .stub(), .stub()])
-        weatherMapView.addPinAndFocus(at: 47.6422, longitude: 16.082741)
-        weatherExtraInfoView.setupData([
-            .init(header: "습도", value: "56%", footer: nil),
-            .init(header: "구름", value: "50%", footer: nil),
-            .init(header: "바람 속도", value: "1.97m/s", footer: "강풍: 3.39m/s"),
-            .init(header: "기압", value: "1,030\nhpa", footer: nil)
-        ])
+        bind()
+//        viewModel.fetchWeather(param: <#T##WeatherRequest#>)
+        
+        
+//        topView.setupData(.init(cityName: "Seoul", temperature: "-7", weather: "맑음", maximumTemperature: "-1", minimumTemperature: "-11"))
+//        threeHourForecastView.setupData([.stub(), .stub(), .stub(), .stub(), .stub(), .stub(), .stub(), .stub()])
+//        dailyForecastView.setupData([.stub(), .stub(), .stub(), .stub(), .stub()])
+//        weatherMapView.addPinAndFocus(at: 47.6422, longitude: 16.082741)
+//        weatherExtraInfoView.setupData([
+//            .init(header: "습도", value: "56%", footer: nil),
+//            .init(header: "구름", value: "50%", footer: nil),
+//            .init(header: "바람 속도", value: "1.97m/s", footer: "강풍: 3.39m/s"),
+//            .init(header: "기압", value: "1,030\nhpa", footer: nil)
+//        ])
+    }
+    
+    // MARK: Binding
+    
+    private func bind() {
+        bindTopViewData()
+        bindThreeHourForecastCellData()
+        bindDailyForecastCellData()
+        bindWeatherExtraInfoCellData()
+    }
+    
+    private func bindTopViewData() {
+        viewModel.topViewData
+            .bind { [weak self] data in
+                self?.topView.setupData(data)
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    private func bindThreeHourForecastCellData() {
+        viewModel.threeHourForecastCellData
+            .bind { [weak self] list in
+                self?.threeHourForecastView.setupData(list)
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    private func bindDailyForecastCellData() {
+        viewModel.dailyForecastCellData
+            .bind { [weak self] list in
+                self?.dailyForecastView.setupData(list)
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    private func bindWeatherExtraInfoCellData() {
+        viewModel.weatherExtraInfoCellData
+            .bind { [weak self] list in
+                self?.weatherExtraInfoView.setupData(list)
+            }
+            .disposed(by: disposeBag)
     }
 }
