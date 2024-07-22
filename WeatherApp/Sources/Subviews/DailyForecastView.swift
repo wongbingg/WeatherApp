@@ -51,6 +51,8 @@ final class DailyForecastView: BaseView {
     override func setupInitialSetting() {
         setupTableViewData()
         setupTableViewDelegate()
+        backgroundColor = .white
+        weatherTableView.backgroundColor = .white
     }
     
     private func setupTableViewData() {

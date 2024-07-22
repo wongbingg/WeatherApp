@@ -55,6 +55,8 @@ final class ThreeHourForecastView: BaseView {
     
     override func setupInitialSetting() {
         setupCollectionViewData()
+        backgroundColor = .white
+        weatherCollectionView.backgroundColor = .white
     }
     
     // MARK: - Methods

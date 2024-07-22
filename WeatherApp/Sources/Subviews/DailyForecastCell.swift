@@ -87,7 +87,6 @@ final class DailyForecastCell: UITableViewCell {
     }
     
     private func setupInitialSetting() {
-        contentView.backgroundColor = .lightGray
     }
     
     func setupData(_ data: DailyForecastCellData) {

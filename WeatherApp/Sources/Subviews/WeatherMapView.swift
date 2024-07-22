@@ -29,16 +29,18 @@ final class WeatherMapView: BaseView {
     
     override func setupViewConstraints() {
         descriptionLabel.snp.makeConstraints {
-            $0.top.leading.equalToSuperview()
+            $0.top.equalToSuperview()
+            $0.leading.equalToSuperview().inset(20)
         }
         mapView.snp.makeConstraints {
             $0.top.equalTo(descriptionLabel.snp.bottom)
-            $0.bottom.leading.trailing.equalToSuperview()
+            $0.bottom.leading.trailing.equalToSuperview().inset(20)
         }
     }
     
     override func setupInitialSetting() {
         mapView.delegate = self
+        backgroundColor = .white
     }
     
     // MARK: - Methods

@@ -20,6 +20,7 @@ class MainViewController: BaseViewController {
     private let mainStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
+        stackView.spacing = 20
         return stackView
     }()
     
@@ -49,7 +50,9 @@ class MainViewController: BaseViewController {
     
     override func setupViewConstraints() {
         mainScrollView.snp.makeConstraints {
-            $0.top.bottom.leading.trailing.equalTo(view.safeAreaLayoutGuide)
+            $0.top.bottom.equalTo(view.safeAreaLayoutGuide)
+            $0.leading.trailing.equalTo(view.safeAreaLayoutGuide).inset(10)
+            
         }
         mainStackView.snp.makeConstraints {
             $0.top.bottom.leading.trailing.equalTo(mainScrollView)
@@ -69,7 +72,7 @@ class MainViewController: BaseViewController {
         }
         weatherInfoView.snp.makeConstraints {
             $0.width.equalToSuperview()
-            $0.height.equalTo(400)
+            $0.height.greaterThanOrEqualTo(300)
         }
     }
     
