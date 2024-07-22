@@ -85,6 +85,30 @@ extension WeatherResponse.City {
     }
 }
 
+// MARK: - WeatherResponse+Mapping
+extension WeatherResponse {
+    func toTopViewData() -> TopViewData {
+        // TODO: 가장 최근 데이터를 표출해야함.
+        .init(cityName: city.name,
+              temperature: "",
+              weather: "",
+              maximumTemperature: "",
+              minimumTemperature: "")
+    }
+    
+    func toThreeHourForecastCellData() -> [ThreeHourForecastCellData] {
+        return []
+    }
+    
+    func toDailyForecastCellData() -> [DailyForecastCellData] {
+        return []
+    }
+    
+    func toWeatherExtraInfoCellData() -> [WeatherExtraInfoCellData] {
+        return []
+    }
+}
+
 /*
 {
     "cod": "200",
