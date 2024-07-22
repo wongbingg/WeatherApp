@@ -102,13 +102,7 @@
 		AFD54E752C4DEC9C005D91D7 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
-				AFD54EE92C4E186C005D91D7 /* Utils */,
-				AFD54E762C4DEC9C005D91D7 /* AppDelegate.swift */,
-				AFD54E782C4DEC9C005D91D7 /* SceneDelegate.swift */,
-				AFD54E7A2C4DEC9C005D91D7 /* MainViewController.swift */,
-				AFD54EF42C4E20E2005D91D7 /* Subviews */,
-				AFD54EDA2C4DFC44005D91D7 /* Data */,
-				AFD54ED42C4DF7A6005D91D7 /* Infrastructure */,
+				AFD54EFF2C4E53C5005D91D7 /* Sources */,
 				AFD54ED32C4DF5F9005D91D7 /* Resources */,
 			);
 			path = WeatherApp;
@@ -185,6 +179,20 @@
 				AFD54EFB2C4E4577005D91D7 /* WeatherExtraInfoCell.swift */,
 			);
 			path = Subviews;
+			sourceTree = "<group>";
+		};
+		AFD54EFF2C4E53C5005D91D7 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				AFD54EE92C4E186C005D91D7 /* Utils */,
+				AFD54E762C4DEC9C005D91D7 /* AppDelegate.swift */,
+				AFD54E782C4DEC9C005D91D7 /* SceneDelegate.swift */,
+				AFD54E7A2C4DEC9C005D91D7 /* MainViewController.swift */,
+				AFD54EF42C4E20E2005D91D7 /* Subviews */,
+				AFD54EDA2C4DFC44005D91D7 /* Data */,
+				AFD54ED42C4DF7A6005D91D7 /* Infrastructure */,
+			);
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+
 import SnapKit
 
 class MainViewController: BaseViewController {
@@ -27,7 +28,6 @@ class MainViewController: BaseViewController {
     private let dailyForecastView = DailyForecastView()
     private let weatherMapView = WeatherMapView()
     private let weatherInfoView = WeatherExtraInfoView()
-   
     
     // MARK: Overrides
     override func setupViewHierarchy() {
