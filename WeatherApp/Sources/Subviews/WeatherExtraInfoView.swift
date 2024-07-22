@@ -18,14 +18,14 @@ final class WeatherExtraInfoView: BaseView {
     
     private let weatherCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.estimatedItemSize = CGSize(width: 70, height: 100)
+        layout.estimatedItemSize = CGSize(width: UIScreen.main.bounds.width/2 - 40, height: UIScreen.main.bounds.width/2 - 40)
         layout.minimumLineSpacing = 20
-        layout.sectionInset = .init(top: 0, left: 20, bottom: 0, right: 20)
         layout.scrollDirection = .vertical
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.register(WeatherExtraInfoCell.self)
-        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.isScrollEnabled = false
         collectionView.backgroundColor = .lightGray
         return collectionView
     }()
@@ -42,7 +42,7 @@ final class WeatherExtraInfoView: BaseView {
     override func setupInitialSetting() {
         setupCollectionViewData()
         backgroundColor = .white
-        weatherCollectionView.backgroundColor = .white
+        weatherCollectionView.backgroundColor = .lightGray
     }
     
     // MARK: - Methods

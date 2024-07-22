@@ -29,16 +29,22 @@ final class TopView: BaseView {
     }()
     private let cityNameLabel: UILabel = {
         let label = UILabel()
+        label.font = .systemFont(ofSize: 30)
+        label.textColor = .white
         return label
     }()
     
     private let temperatureLabel: UILabel = {
         let label = UILabel()
+        label.font = .systemFont(ofSize: 50)
+        label.textColor = .white
         return label
     }()
     
     private let weatherLabel: UILabel = {
         let label = UILabel()
+        label.font = .systemFont(ofSize: 25)
+        label.textColor = .white
         return label
     }()
     
@@ -50,11 +56,15 @@ final class TopView: BaseView {
     
     private let maximumTemperatureLabel: UILabel = {
         let label = UILabel()
+        label.font = .systemFont(ofSize: 16)
+        label.textColor = .white
         return label
     }()
     
     private let minimumTemperatureLabel: UILabel = {
         let label = UILabel()
+        label.font = .systemFont(ofSize: 16)
+        label.textColor = .white
         return label
     }()
     
@@ -89,7 +99,7 @@ final class TopView: BaseView {
     }
     
     override func setupInitialSetting() {
-        mainStackView.backgroundColor = .white
+//        mainStackView.backgroundColor = .white
     }
     
     // MARK: - Methods

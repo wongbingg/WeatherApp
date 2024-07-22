@@ -19,14 +19,15 @@ final class ThreeHourForecastView: BaseView {
     // MARK: - UI
     private let descriptionLabel: UILabel = {
         let label = UILabel()
+        label.font = .systemFont(ofSize: 12)
         return label
     }()
     
     private let weatherCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.estimatedItemSize = CGSize(width: 70, height: 100)
-        layout.minimumLineSpacing = 20
-        layout.sectionInset = .init(top: 0, left: 20, bottom: 0, right: 20)
+        layout.minimumLineSpacing = 15
+        layout.sectionInset = .init(top: 0, left: 10, bottom: 0, right: 10)
         layout.scrollDirection = .horizontal
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -45,10 +46,10 @@ final class ThreeHourForecastView: BaseView {
     
     override func setupViewConstraints() {
         descriptionLabel.snp.makeConstraints {
-            $0.leading.top.equalToSuperview()
+            $0.leading.top.equalToSuperview().inset(10)
         }
         weatherCollectionView.snp.makeConstraints{
-            $0.leading.trailing.bottom.equalToSuperview()
+            $0.leading.trailing.bottom.equalToSuperview().inset(10)
             $0.top.equalTo(descriptionLabel.snp.bottom)
         }
     }
@@ -57,6 +58,7 @@ final class ThreeHourForecastView: BaseView {
         setupCollectionViewData()
         backgroundColor = .white
         weatherCollectionView.backgroundColor = .white
+        self.layer.cornerRadius = 10
     }
     
     // MARK: - Methods

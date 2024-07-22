@@ -18,22 +18,27 @@ final class WeatherExtraInfoCell: UICollectionViewCell {
     private let mainStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
+        stackView.isLayoutMarginsRelativeArrangement = true
+        stackView.layoutMargins = .init(top: 10, left: 10, bottom: 10, right: 10)
         return stackView
     }()
     
     private let headerLabel: UILabel = {
         let label = UILabel()
+        label.font = .systemFont(ofSize: 12)
         return label
     }()
     
     private let valueLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 2
+        label.font = .systemFont(ofSize: 25)
         return label
     }()
     
     private let footerLabel: UILabel = {
         let label = UILabel()
+        label.font = .systemFont(ofSize: 12)
         return label
     }()
     
@@ -76,11 +81,12 @@ final class WeatherExtraInfoCell: UICollectionViewCell {
     private func setupViewConstraints() {
         mainStackView.snp.makeConstraints {
             $0.top.bottom.leading.trailing.equalToSuperview()
-            $0.width.height.equalTo(UIScreen.main.bounds.width/2 - 60)
+            $0.width.height.equalTo(UIScreen.main.bounds.width/2 - 20)
         }
     }
     
     private func setupInitialSetting() {
-        mainStackView.backgroundColor = .brown
+        mainStackView.backgroundColor = .white
+        mainStackView.layer.cornerRadius = 10
     }
 }

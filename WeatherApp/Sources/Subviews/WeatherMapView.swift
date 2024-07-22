@@ -14,6 +14,7 @@ final class WeatherMapView: BaseView {
     private let descriptionLabel: UILabel = {
         let label = UILabel()
         label.text = "강수량"
+        label.font = .systemFont(ofSize: 12)
         return label
     }()
     private let mapView: MKMapView = {
@@ -29,18 +30,20 @@ final class WeatherMapView: BaseView {
     
     override func setupViewConstraints() {
         descriptionLabel.snp.makeConstraints {
-            $0.top.equalToSuperview()
-            $0.leading.equalToSuperview().inset(20)
+            $0.top.equalToSuperview().inset(10)
+            $0.leading.equalToSuperview().inset(10)
         }
         mapView.snp.makeConstraints {
-            $0.top.equalTo(descriptionLabel.snp.bottom)
-            $0.bottom.leading.trailing.equalToSuperview().inset(20)
+            $0.top.equalTo(descriptionLabel.snp.bottom).offset(8)
+            $0.bottom.leading.trailing.equalToSuperview().inset(10)
         }
     }
     
     override func setupInitialSetting() {
         mapView.delegate = self
+        mapView.layer.cornerRadius = 10
         backgroundColor = .white
+        self.layer.cornerRadius = 10
     }
     
     // MARK: - Methods

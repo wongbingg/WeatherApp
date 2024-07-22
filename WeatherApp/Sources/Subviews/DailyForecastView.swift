@@ -10,6 +10,7 @@ import UIKit
 import RxSwift
 import RxRelay
 import RxCocoa
+import SnapKit
 
 final class DailyForecastView: BaseView {
     
@@ -19,6 +20,7 @@ final class DailyForecastView: BaseView {
     // MARK: - UI
     private let descriptionLabel: UILabel = {
         let label = UILabel()
+        label.font = .systemFont(ofSize: 12)
         return label
     }()
     
@@ -28,6 +30,7 @@ final class DailyForecastView: BaseView {
         tableView.showsVerticalScrollIndicator = false
         tableView.backgroundColor = .lightGray
         tableView.isScrollEnabled = false
+        tableView.rowHeight = 40
         return tableView
     }()
     
@@ -40,10 +43,10 @@ final class DailyForecastView: BaseView {
     
     override func setupViewConstraints() {
         descriptionLabel.snp.makeConstraints {
-            $0.leading.top.equalToSuperview()
+            $0.leading.top.equalToSuperview().inset(10)
         }
         weatherTableView.snp.makeConstraints{
-            $0.leading.trailing.bottom.equalToSuperview()
+            $0.leading.trailing.bottom.equalToSuperview().inset(10)
             $0.top.equalTo(descriptionLabel.snp.bottom)
         }
     }
@@ -53,6 +56,7 @@ final class DailyForecastView: BaseView {
         setupTableViewDelegate()
         backgroundColor = .white
         weatherTableView.backgroundColor = .white
+        self.layer.cornerRadius = 10
     }
     
     private func setupTableViewData() {
@@ -62,7 +66,6 @@ final class DailyForecastView: BaseView {
                 cellType: DailyForecastCell.self)
             ) { [weak self] index, item, cell in
                 
-                guard let self = self else { return }
                 cell.setupData(item)
             }
             .disposed(by: disposeBag)
@@ -74,7 +77,6 @@ final class DailyForecastView: BaseView {
                 self?.weatherTableView.deselectRow(at: indexPath, animated: true)
             }
             .disposed(by: disposeBag)
-
     }
     
     func setupData(_ data: [DailyForecastCellData]) {

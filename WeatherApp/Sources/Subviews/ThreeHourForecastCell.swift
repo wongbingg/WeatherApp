@@ -28,6 +28,7 @@ final class ThreeHourForecastCell: UICollectionViewCell {
     }()
     private let timeLabel: UILabel = {
         let label = UILabel()
+        label.font = .systemFont(ofSize: 12)
         return label
     }()
     
