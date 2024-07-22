@@ -44,7 +44,7 @@ struct DefuaultMainViewModel: MainViewModel {
                 dailyForecastCellData.accept(response.toDailyForecastCellData())
                 weatherExtraInfoCellData.accept(response.toWeatherExtraInfoCellData())
             } onFailure: { error in
-                print(error.localizedDescription)
+                Console.error(error.localizedDescription + " --- \(#function)")
             }
             .disposed(by: disposeBag)
     }
