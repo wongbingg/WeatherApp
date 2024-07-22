@@ -17,7 +17,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = MainViewController()
+        let apiClient = APIClient()
+        let weatherRepository = DefaultWeatherRepository(apiClient: apiClient)
+        let fetchWeatherUseCase = DefaultFetchWeatherUseCase(repository: weatherRepository)
+        let mainViewModel = DefuaultMainViewModel(fetchWeatherUseCase: fetchWeatherUseCase)
+        window?.rootViewController = MainViewController(viewModel: mainViewModel)
         window?.makeKeyAndVisible()
     }
 
