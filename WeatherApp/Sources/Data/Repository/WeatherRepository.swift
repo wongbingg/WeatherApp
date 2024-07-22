@@ -8,7 +8,7 @@
 import RxSwift
 
 protocol WeatherRepository {
-    func fetchWeather(param: WeatherRequest) -> Single<WeatherResopnse>
+    func fetchWeather(param: WeatherRequest) -> Single<WeatherResponse>
 }
 
 final class DefaultWeatherRepository: WeatherRepository {
@@ -19,7 +19,7 @@ final class DefaultWeatherRepository: WeatherRepository {
         self.apiClient = apiClient
     }
     
-    func fetchWeather(param: WeatherRequest) -> Single<WeatherResopnse> {
+    func fetchWeather(param: WeatherRequest) -> Single<WeatherResponse> {
         do {
             let parameters = try param.toDictionary()
             let endpoint = WeatherEndpoint(parameters: parameters)

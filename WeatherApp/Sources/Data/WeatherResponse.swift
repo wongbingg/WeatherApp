@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct WeatherResopnse: Decodable {
+struct WeatherResponse: Decodable {
     let cod: String
     let message: Double
     let cnt: Double
@@ -15,7 +15,7 @@ struct WeatherResopnse: Decodable {
     let city: City
 }
 
-extension WeatherResopnse {
+extension WeatherResponse {
     
     struct Data: Decodable {
         let dt: Double
@@ -41,7 +41,7 @@ extension WeatherResopnse {
     }
 }
 
-extension WeatherResopnse.Data {
+extension WeatherResponse.Data {
     
     struct Main: Decodable {
         let temp: Double
@@ -77,7 +77,7 @@ extension WeatherResopnse.Data {
     }
 }
 
-extension WeatherResopnse.City {
+extension WeatherResponse.City {
     
     struct Coord: Decodable {
         let lat: Double
