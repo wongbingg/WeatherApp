@@ -26,7 +26,7 @@ class MainViewController: BaseViewController {
     private let threeHourForecastView = ThreeHourForecastView()
     private let dailyForecastView = DailyForecastView()
     private let weatherMapView = WeatherMapView()
-    private let weatherInfoView = WeatherInfoView()
+    private let weatherInfoView = WeatherExtraInfoView()
    
     
     // MARK: Overrides
