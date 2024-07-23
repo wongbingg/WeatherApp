@@ -101,7 +101,6 @@ extension WeatherResponse {
             .init(header: "구름", value: "\(cloudsAverage)%", footer: nil),
             .init(header: "바람속도", value: windAverageString, footer: maximumWindString),
             .init(header: "기압", value: "\(pressureAverage.toCommaNumberString())\nhpa", footer: nil)
-            
         ]
     }
 }

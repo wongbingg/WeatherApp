@@ -7,10 +7,6 @@
 
 import Foundation
 
-protocol CityRepository {
-    func fetchCityList() -> [CityResponse]
-}
-
 final class DefaultCityRepository: CityRepository {
     
     func fetchCityList() -> [CityResponse] {
