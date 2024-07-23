@@ -10,30 +10,32 @@ import Foundation
 extension WeatherResponse {
     
     func toTopViewData() -> TopViewData {
-        // TODO: 가장 최근 데이터를 표출해야함.
-        .init(cityName: city.name,
-              temperature: "\(list.first!.main.temp.toCelsius())",
-              weather: "\(list.first!.weather.first!.description)",
-              maximumTemperature: "\(list.first!.main.temp_max.toCelsius())",
-              minimumTemperature: "\(list.first!.main.temp_min.toCelsius())")
+
+        guard let recentData = list.first else { return .stub() }
+        
+        return .init(cityName: city.name,
+              temperature: "\(recentData.main.temp.toCelsius())",
+              weather: "\(recentData.weather.first?.description ?? "보통")",
+              maximumTemperature: "\(recentData.main.temp_max.toCelsius())",
+              minimumTemperature: "\(recentData.main.temp_min.toCelsius())")
     }
     
     func toThreeHourForecastCellData() -> [ThreeHourForecastCellData] {
-        var twoDaysList = Array(list[0...15]) // 이틀간 16개의 날씨데이터만 표출
+        let twoDaysList = Array(list[0...15])
         return twoDaysList.map {
             let date = Date.fromTimestamp($0.dt)
             let koreaDateString = date.toKoreaTimeString(format: "a hh시")
             
             return ThreeHourForecastCellData(
                 time: koreaDateString,
-                iconName: $0.weather.first!.icon,
+                iconName: $0.weather.first?.icon ?? "01d",
                 temperature: $0.main.temp.toCelsius()
             )
         }
     }
     
     func toDailyForecastCellData() -> [DailyForecastCellData] {
-        var standardDate = Date() // 기준날짜
+        var standardDate = Date()
         var tempList = [Double]()
         var dataList = [DailyForecastCellData]()
         
@@ -84,17 +86,19 @@ extension WeatherResponse {
             }
         }
         
-        let humidityAverage = list.map { Int($0.main.humidity) }.reduce(0, +) / list.count
-        let cloudsAverage = list.map { Int($0.clouds.all) }.reduce(0, +) / list.count
+        let count = list.count
+        
+        let humidityAverage = list.map { Int($0.main.humidity) }.reduce(0, +) / count
+        let cloudsAverage = list.map { Int($0.clouds.all) }.reduce(0, +) / count
         let windAverage = list.map {
             maximumWind = $0.wind.speed
             return $0.wind.speed
-        }.reduce(0.0, +) / Double(list.count)
+        }.reduce(0.0, +) / Double(count)
         
         let windAverageString = String(format: "%.2fm/s", windAverage)
         let maximumWindString = String(format: "강풍: %.2fm/s", maximumWind)
         
-        let pressureAverage = list.map { Int($0.main.pressure) }.reduce(0, +) / list.count
+        let pressureAverage = list.map { Int($0.main.pressure) }.reduce(0, +) / count
         
         return [
             .init(header: "습도", value: "\(humidityAverage)%", footer: nil),

@@ -62,7 +62,7 @@ final class ThreeHourForecastView: BaseView {
     
     // MARK: - Methods
     func setupData(_ data: [ThreeHourForecastCellData]) {
-        descriptionLabel.text = "돌풍의 풀속은 최대 4m/s입니다."
+        descriptionLabel.text = "돌풍의 풍속은 최대 4m/s입니다."
         dataSource.accept(data)
     }
     

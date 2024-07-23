@@ -43,6 +43,7 @@ final class TopView: BaseView {
     private let temperatureStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .horizontal
+        stackView.spacing = 20
         return stackView
     }()
     
