@@ -20,6 +20,7 @@ final class WeatherExtraInfoCell: UICollectionViewCell {
     private let headerLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 12)
+        label.setContentHuggingPriority(.required, for: .vertical)
         return label
     }()
     
@@ -75,7 +76,6 @@ final class WeatherExtraInfoCell: UICollectionViewCell {
     private func setupViewConstraints() {
         mainStackView.snp.makeConstraints {
             $0.top.bottom.leading.trailing.equalToSuperview()
-            $0.width.height.equalTo(UIScreen.main.bounds.width/2 - 20)
         }
     }
     

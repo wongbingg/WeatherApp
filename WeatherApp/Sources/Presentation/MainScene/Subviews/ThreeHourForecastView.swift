@@ -27,7 +27,6 @@ final class ThreeHourForecastView: BaseView {
         let layout = UICollectionViewFlowLayout()
         layout.estimatedItemSize = CGSize(width: 70, height: 100)
         layout.minimumLineSpacing = 15
-        layout.sectionInset = .init(top: 0, left: 10, bottom: 0, right: 10)
         layout.scrollDirection = .horizontal
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)

@@ -18,7 +18,7 @@ final class WeatherExtraInfoView: BaseView {
     
     private let weatherCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.estimatedItemSize = CGSize(width: UIScreen.main.bounds.width/2 - 40, height: UIScreen.main.bounds.width/2 - 40)
+        layout.itemSize = CGSize(width: UIScreen.main.bounds.width/2 - 20, height: UIScreen.main.bounds.width/2 - 20)
         layout.minimumLineSpacing = 20
         layout.scrollDirection = .vertical
         
