@@ -17,7 +17,7 @@ struct TopViewData {
     let minimumTemperature: String
     
     static func stub() -> Self {
-        .init(cityName: "Seoul", temperature: "7", weather: "맑음", maximumTemperature: "-7", minimumTemperature: "11")
+        .init(cityName: "Busan", temperature: "7", weather: "맑음", maximumTemperature: "-7", minimumTemperature: "11")
     }
 }
 
