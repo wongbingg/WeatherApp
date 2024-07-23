@@ -32,8 +32,8 @@ final class MainViewController: BaseViewController {
         return stackView
     }()
     
-    private let searchResultController: SearchViewController
     private lazy var searchController = UISearchController(searchResultsController: searchResultController)
+    private let searchResultController: SearchViewController
     private let topView = TopView()
     private let threeHourForecastView = ThreeHourForecastView()
     private let dailyForecastView = DailyForecastView()
@@ -105,8 +105,8 @@ final class MainViewController: BaseViewController {
         
         viewModel.fetchWeather(
             param: .init(
-                lat: 37.5114,
-                lon: 26.6616,
+                lat: 36.783611,
+                lon: 127.004173,
                 appid: BundleInfo.apiKey,
                 cnt: 40,
                 lang: "kr"
