@@ -97,27 +97,25 @@ final class MainViewController: BaseViewController {
     override func setupInitialSetting() {
         view.backgroundColor = .lightGray
         bind()
-//        viewModel.fetchWeather(param: <#T##WeatherRequest#>)
         
-        
-//        topView.setupData(.init(cityName: "Seoul", temperature: "-7", weather: "맑음", maximumTemperature: "-1", minimumTemperature: "-11"))
-//        threeHourForecastView.setupData([.stub(), .stub(), .stub(), .stub(), .stub(), .stub(), .stub(), .stub()])
-//        dailyForecastView.setupData([.stub(), .stub(), .stub(), .stub(), .stub()])
-//        weatherMapView.addPinAndFocus(at: 47.6422, longitude: 16.082741)
-//        weatherExtraInfoView.setupData([
-//            .init(header: "습도", value: "56%", footer: nil),
-//            .init(header: "구름", value: "50%", footer: nil),
-//            .init(header: "바람 속도", value: "1.97m/s", footer: "강풍: 3.39m/s"),
-//            .init(header: "기압", value: "1,030\nhpa", footer: nil)
-//        ])
+        viewModel.fetchWeather(
+            param: .init(
+                lat: 37.5114,
+                lon: 26.6616,
+                appid: "f56f0b3525023d4e3dcd5263b763b404",
+                cnt: 40,
+                lang: "kr"
+            )
+        )
     }
     
-    // MARK: Binding
+    // MARK: - Binding
     
     private func bind() {
         bindTopViewData()
         bindThreeHourForecastCellData()
         bindDailyForecastCellData()
+        bindMapData()
         bindWeatherExtraInfoCellData()
     }
     
@@ -141,6 +139,14 @@ final class MainViewController: BaseViewController {
         viewModel.dailyForecastCellData
             .bind { [weak self] list in
                 self?.dailyForecastView.setupData(list)
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    private func bindMapData() {
+        viewModel.mapData
+            .bind { [weak self] coordinate in
+                self?.weatherMapView.addPinAndFocus(at: coordinate.lat, longitude: coordinate.lon)
             }
             .disposed(by: disposeBag)
     }

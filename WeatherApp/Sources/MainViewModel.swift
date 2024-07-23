@@ -16,32 +16,39 @@ protocol MainViewModelOutput {
     var topViewData: BehaviorRelay<TopViewData> { get }
     var threeHourForecastCellData: BehaviorRelay<[ThreeHourForecastCellData]> { get }
     var dailyForecastCellData: BehaviorRelay<[DailyForecastCellData]> { get }
+    var mapData: BehaviorRelay<(lat: Double, lon: Double)> { get }
     var weatherExtraInfoCellData: BehaviorRelay<[WeatherExtraInfoCellData]> { get }
 }
 
 protocol MainViewModel: MainViewModelInput, MainViewModelOutput {}
 
-struct DefuaultMainViewModel: MainViewModel {
-    private var disposeBag = DisposeBag()
-    // MARK: Outputs
+// MARK: Outputs
+struct DefaultMainViewModel: MainViewModel {
+    
     var topViewData: BehaviorRelay<TopViewData> = .init(value: .stub())
     var threeHourForecastCellData: BehaviorRelay<[ThreeHourForecastCellData]> = .init(value: [])
     var dailyForecastCellData: BehaviorRelay<[DailyForecastCellData]> = .init(value: [])
+    var mapData: BehaviorRelay<(lat: Double, lon: Double)> = .init(value: (0,0))
     var weatherExtraInfoCellData: BehaviorRelay<[WeatherExtraInfoCellData]> = .init(value: [])
     
+    private var disposeBag = DisposeBag()
     private let fetchWeatherUseCase: FetchWeatherUseCase
     
     init(fetchWeatherUseCase: FetchWeatherUseCase) {
         self.fetchWeatherUseCase = fetchWeatherUseCase
     }
+}
+
+// MARK: Inputs
+extension DefaultMainViewModel {
     
-    // MARK: Inputs
     func fetchWeather(param: WeatherRequest) {
         fetchWeatherUseCase.execute(param: param)
             .subscribe { response in
                 topViewData.accept(response.toTopViewData())
                 threeHourForecastCellData.accept(response.toThreeHourForecastCellData())
                 dailyForecastCellData.accept(response.toDailyForecastCellData())
+                mapData.accept(response.toMapData())
                 weatherExtraInfoCellData.accept(response.toWeatherExtraInfoCellData())
             } onFailure: { error in
                 Console.error(error.localizedDescription + " --- \(#function)")
