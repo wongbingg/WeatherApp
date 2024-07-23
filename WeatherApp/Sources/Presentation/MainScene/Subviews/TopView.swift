@@ -9,18 +9,6 @@ import UIKit
 
 import SnapKit
 
-struct TopViewData {
-    let cityName: String
-    let temperature: String
-    let weather: String
-    let maximumTemperature: String
-    let minimumTemperature: String
-    
-    static func stub() -> Self {
-        .init(cityName: "Busan", temperature: "7", weather: "맑음", maximumTemperature: "-7", minimumTemperature: "11")
-    }
-}
-
 final class TopView: BaseView {
     
     // MARK: - UI

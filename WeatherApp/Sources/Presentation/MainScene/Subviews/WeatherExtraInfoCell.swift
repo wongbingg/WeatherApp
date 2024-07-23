@@ -7,12 +7,6 @@
 
 import UIKit
 
-struct WeatherExtraInfoCellData {
-    let header: String
-    let value: String
-    let footer: String?
-}
-
 final class WeatherExtraInfoCell: UICollectionViewCell {
     // MARK: - UI
     private let mainStackView: UIStackView = {

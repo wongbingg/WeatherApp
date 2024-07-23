@@ -7,17 +7,6 @@
 
 import UIKit
 
-struct DailyForecastCellData {
-    let day: String
-    let iconName: String
-    let minimumTemperature: String
-    let maximumTemperature: String
-    
-    static func stub() -> Self {
-        .init(day: "수", iconName: "01d", minimumTemperature: "-7", maximumTemperature: "11")
-    }
-}
-
 final class DailyForecastCell: UITableViewCell {
     
     // MARK: - UI
