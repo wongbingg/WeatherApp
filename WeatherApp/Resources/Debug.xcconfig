@@ -1,0 +1,11 @@
+//
+//  Debug.xcconfig
+//  WeatherApp
+//
+//  Created by 이원빈 on 2024/07/23.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+API_KEY = f56f0b3525023d4e3dcd5263b763b404
