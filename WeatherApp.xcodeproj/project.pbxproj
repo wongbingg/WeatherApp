@@ -216,6 +216,16 @@
 			path = Entities;
 			sourceTree = "<group>";
 		};
+		AF620B6E2C4FA70500120956 /* DTOs */ = {
+			isa = PBXGroup;
+			children = (
+				AFD54EDE2C4E0FBE005D91D7 /* WeatherResponse.swift */,
+				AF620B572C4F81C300120956 /* CityResponse.swift */,
+				AF620B442C4F718700120956 /* DataMapping */,
+			);
+			path = DTOs;
+			sourceTree = "<group>";
+		};
 		AF750E0F2C4E919100C28D21 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
@@ -284,12 +294,10 @@
 		AFD54EDA2C4DFC44005D91D7 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				AF620B442C4F718700120956 /* DataMapping */,
+				AF620B6E2C4FA70500120956 /* DTOs */,
 				AFD54EDB2C4DFC47005D91D7 /* Repository */,
-				AFD54EDE2C4E0FBE005D91D7 /* WeatherResponse.swift */,
 				AFD54EE32C4E124B005D91D7 /* WeatherRequest.swift */,
 				AFD54EE52C4E13BD005D91D7 /* WeatherEndpoint.swift */,
-				AF620B572C4F81C300120956 /* CityResponse.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
