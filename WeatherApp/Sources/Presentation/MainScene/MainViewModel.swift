@@ -10,9 +10,11 @@ import RxRelay
 
 protocol MainViewModelInput {
     func fetchWeather(param: WeatherRequest)
+    func putSearchText(_ text: String)
 }
 
 protocol MainViewModelOutput {
+    var searchText: BehaviorRelay<String> { get }
     var topViewData: BehaviorRelay<TopViewData> { get }
     var threeHourForecastCellData: BehaviorRelay<[ThreeHourForecastCellData]> { get }
     var dailyForecastCellData: BehaviorRelay<[DailyForecastCellData]> { get }
@@ -24,7 +26,7 @@ protocol MainViewModel: MainViewModelInput, MainViewModelOutput {}
 
 // MARK: Outputs
 struct DefaultMainViewModel: MainViewModel {
-    
+    var searchText: BehaviorRelay<String> = .init(value: "")
     var topViewData: BehaviorRelay<TopViewData> = .init(value: .stub())
     var threeHourForecastCellData: BehaviorRelay<[ThreeHourForecastCellData]> = .init(value: [])
     var dailyForecastCellData: BehaviorRelay<[DailyForecastCellData]> = .init(value: [])
@@ -54,5 +56,9 @@ extension DefaultMainViewModel {
                 Console.error(error.localizedDescription + " --- \(#function)")
             }
             .disposed(by: disposeBag)
+    }
+    
+    func putSearchText(_ text: String) {
+        searchText.accept(text)
     }
 }

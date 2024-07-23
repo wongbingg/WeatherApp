@@ -32,6 +32,8 @@ final class MainViewController: BaseViewController {
         return stackView
     }()
     
+    private let searchResultController: SearchViewController
+    private lazy var searchController = UISearchController(searchResultsController: searchResultController)
     private let topView = TopView()
     private let threeHourForecastView = ThreeHourForecastView()
     private let dailyForecastView = DailyForecastView()
@@ -39,9 +41,11 @@ final class MainViewController: BaseViewController {
     private let weatherExtraInfoView = WeatherExtraInfoView()
     
     // MARK: Initializers
-    init(viewModel: MainViewModel) {
+    init(viewModel: MainViewModel, searchResultController: SearchViewController) {
         self.viewModel = viewModel
+        self.searchResultController = searchResultController
         super.init(nibName: nil, bundle: nil)
+        self.searchResultController.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -96,29 +100,52 @@ final class MainViewController: BaseViewController {
     
     override func setupInitialSetting() {
         view.backgroundColor = .lightGray
+        setupSearchController()
         bind()
-        viewModel.fetchWeather(param: .init(lat: 0, lon: 0, appid: "f56f0b3525023d4e3dcd5263b763b404"))
         
-        
-//        topView.setupData(.init(cityName: "Seoul", temperature: "-7", weather: "맑음", maximumTemperature: "-1", minimumTemperature: "-11"))
-//        threeHourForecastView.setupData([.stub(), .stub(), .stub(), .stub(), .stub(), .stub(), .stub(), .stub()])
-//        dailyForecastView.setupData([.stub(), .stub(), .stub(), .stub(), .stub()])
-//        weatherMapView.addPinAndFocus(at: 47.6422, longitude: 16.082741)
-//        weatherExtraInfoView.setupData([
-//            .init(header: "습도", value: "56%", footer: nil),
-//            .init(header: "구름", value: "50%", footer: nil),
-//            .init(header: "바람 속도", value: "1.97m/s", footer: "강풍: 3.39m/s"),
-//            .init(header: "기압", value: "1,030\nhpa", footer: nil)
-//        ])
+        viewModel.fetchWeather(
+            param: .init(
+                lat: 37.5114,
+                lon: 26.6616,
+                appid: BundleInfo.apiKey,
+                cnt: 40,
+                lang: "kr"
+            )
+        )
     }
     
-    // MARK: Binding
+    private func setupSearchController() {
+        // Search Controller 설정
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "검색어를 입력하세요"
+        
+        // 네비게이션 아이템에 Search Controller 추가
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        
+        // 검색창이 사라지지 않도록 설정
+        definesPresentationContext = true
+    }
     
+    // MARK: - Binding
     private func bind() {
+        bindSearchText()
         bindTopViewData()
         bindThreeHourForecastCellData()
         bindDailyForecastCellData()
+        bindMapData()
         bindWeatherExtraInfoCellData()
+    }
+    
+    private func bindSearchText() {
+        viewModel.searchText
+            .debounce(.milliseconds(300), scheduler: MainScheduler.instance)
+            .distinctUntilChanged()
+            .subscribe { [weak self] text in
+                self?.searchResultController.setData(text)
+            }
+            .disposed(by: disposeBag)
     }
     
     private func bindTopViewData() {
@@ -145,11 +172,45 @@ final class MainViewController: BaseViewController {
             .disposed(by: disposeBag)
     }
     
+    private func bindMapData() {
+        viewModel.mapData
+            .bind { [weak self] coordinate in
+                self?.weatherMapView.addPinAndFocus(at: coordinate.lat, longitude: coordinate.lon)
+            }
+            .disposed(by: disposeBag)
+    }
+    
     private func bindWeatherExtraInfoCellData() {
         viewModel.weatherExtraInfoCellData
             .bind { [weak self] list in
                 self?.weatherExtraInfoView.setupData(list)
             }
             .disposed(by: disposeBag)
+    }
+}
+
+// MARK: - SearchBar
+
+extension MainViewController: UISearchResultsUpdating {
+    
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchText = searchController.searchBar.text
+        viewModel.putSearchText(searchText ?? "")
+    }
+}
+
+extension MainViewController: SearchViewControllerDelegate {
+    
+    func searchButtonTapped(with lat: Double, lon: Double) {
+        viewModel.fetchWeather(
+            param: .init(
+                lat: lat,
+                lon: lon,
+                appid: BundleInfo.apiKey,
+                cnt: 40,
+                lang: "kr"
+            )
+        )
+        searchController.isActive = false
     }
 }
