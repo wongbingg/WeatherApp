@@ -11,7 +11,17 @@ final class MainSceneDIContainer {
     // MARK: - ViewControllers
     func makeMainViewController() -> MainViewController {
         let viewModel = makeMainViewModel()
-        return MainViewController(viewModel: viewModel)
+        let searchResultController = makeSearchViewController()
+        
+        return MainViewController(
+            viewModel: viewModel,
+            searchResultController: searchResultController
+        )
+    }
+    
+    func makeSearchViewController() -> SearchViewController {
+        let viewModel = makeSearchViewModel()
+        return SearchViewController(viewModel: makeSearchViewModel())
     }
     
     // MARK: - ViewModels
@@ -21,13 +31,25 @@ final class MainSceneDIContainer {
         )
     }
     
+    func makeSearchViewModel() -> SearchViewModel {
+        return DefaultSearchViewModel(fetchCityUseCase: makeFetchCityUseCase())
+    }
+    
     // MARK: - UseCases
     func makeFetchWeatherUseCase() -> FetchWeatherUseCase {
         return DefaultFetchWeatherUseCase(repository: makeWeatherRepository())
     }
     
+    func makeFetchCityUseCase() -> FetchCityUseCase {
+        return DefaultFetchCityUseCase(cityRepository: makeCityRepository())
+    }
+    
     // MARK: - Repositories
     func makeWeatherRepository() -> WeatherRepository {
         return DefaultWeatherRepository(apiClient: APIClient())
+    }
+    
+    func makeCityRepository() -> CityRepository {
+        return DefaultCityRepository()
     }
 }
