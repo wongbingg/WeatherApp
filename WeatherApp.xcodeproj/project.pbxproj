@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF620B3D2C4F5ED300120956 /* Int+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF620B3C2C4F5ED300120956 /* Int+.swift */; };
 		AF750E0E2C4E894C00C28D21 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF750E0D2C4E894C00C28D21 /* MainViewModel.swift */; };
 		AF750E122C4E91A000C28D21 /* FetchWeatherUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF750E112C4E91A000C28D21 /* FetchWeatherUseCase.swift */; };
 		AF750E142C4F090800C28D21 /* Console.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF750E132C4F090800C28D21 /* Console.swift */; };
@@ -39,9 +40,12 @@
 		AFD54EFA2C4E3B3A005D91D7 /* DailyForecastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD54EF92C4E3B3A005D91D7 /* DailyForecastCell.swift */; };
 		AFD54EFC2C4E4577005D91D7 /* WeatherExtraInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD54EFB2C4E4577005D91D7 /* WeatherExtraInfoCell.swift */; };
 		AFD54EFE2C4E4A47005D91D7 /* WeatherExtraInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD54EFD2C4E4A47005D91D7 /* WeatherExtraInfoView.swift */; };
+		AFF5818D2C4F3EA800B7ABC8 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF5818C2C4F3EA800B7ABC8 /* Date+.swift */; };
+		AFF5818F2C4F3EF700B7ABC8 /* Double+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF5818E2C4F3EF700B7ABC8 /* Double+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AF620B3C2C4F5ED300120956 /* Int+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+.swift"; sourceTree = "<group>"; };
 		AF750E0D2C4E894C00C28D21 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		AF750E112C4E91A000C28D21 /* FetchWeatherUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchWeatherUseCase.swift; sourceTree = "<group>"; };
 		AF750E132C4F090800C28D21 /* Console.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Console.swift; sourceTree = "<group>"; };
@@ -71,6 +75,8 @@
 		AFD54EF92C4E3B3A005D91D7 /* DailyForecastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecastCell.swift; sourceTree = "<group>"; };
 		AFD54EFB2C4E4577005D91D7 /* WeatherExtraInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherExtraInfoCell.swift; sourceTree = "<group>"; };
 		AFD54EFD2C4E4A47005D91D7 /* WeatherExtraInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherExtraInfoView.swift; sourceTree = "<group>"; };
+		AFF5818C2C4F3EA800B7ABC8 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
+		AFF5818E2C4F3EF700B7ABC8 /* Double+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +179,9 @@
 			isa = PBXGroup;
 			children = (
 				AFD54EE02C4E1231005D91D7 /* Encodable+.swift */,
+				AFF5818C2C4F3EA800B7ABC8 /* Date+.swift */,
+				AFF5818E2C4F3EF700B7ABC8 /* Double+.swift */,
+				AF620B3C2C4F5ED300120956 /* Int+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -309,14 +318,17 @@
 				AFD54EFE2C4E4A47005D91D7 /* WeatherExtraInfoView.swift in Sources */,
 				AFD54EF12C4E1F79005D91D7 /* DailyForecastView.swift in Sources */,
 				AFD54EF62C4E2118005D91D7 /* ThreeHourForecastCell.swift in Sources */,
+				AF620B3D2C4F5ED300120956 /* Int+.swift in Sources */,
 				AFD54E7B2C4DEC9C005D91D7 /* MainViewController.swift in Sources */,
 				AFD54E772C4DEC9C005D91D7 /* AppDelegate.swift in Sources */,
+				AFF5818D2C4F3EA800B7ABC8 /* Date+.swift in Sources */,
 				AFD54EEB2C4E1877005D91D7 /* BaseView.swift in Sources */,
 				AFD54EEF2C4E1EFC005D91D7 /* ThreeHourForecastView.swift in Sources */,
 				AFD54EFC2C4E4577005D91D7 /* WeatherExtraInfoCell.swift in Sources */,
 				AFD54EFA2C4E3B3A005D91D7 /* DailyForecastCell.swift in Sources */,
 				AFD54EF82C4E23A6005D91D7 /* ReusableCell.swift in Sources */,
 				AFD54EE12C4E1231005D91D7 /* Encodable+.swift in Sources */,
+				AFF5818F2C4F3EF700B7ABC8 /* Double+.swift in Sources */,
 				AFD54EF32C4E1FAC005D91D7 /* WeatherMapView.swift in Sources */,
 				AF750E122C4E91A000C28D21 /* FetchWeatherUseCase.swift in Sources */,
 				AFD54EDF2C4E0FBE005D91D7 /* WeatherResponse.swift in Sources */,
