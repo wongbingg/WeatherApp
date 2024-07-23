@@ -11,4 +11,6 @@ struct WeatherRequest: Encodable {
     let lat: Double
     let lon: Double
     let appid: String
+    let cnt: Int
+    let lang: String
 }

@@ -22,7 +22,6 @@ final class APIClient: APIClientProtocol {
                 endpoint.url,
                 method: HTTPMethod(rawValue: endpoint.method.rawValue),
                 parameters: endpoint.parameters,
-                encoding: URLEncoding.default,
                 headers: endpoint.headers
             )
             .validate(statusCode: 200..<300)

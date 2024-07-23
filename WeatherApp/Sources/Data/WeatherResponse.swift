@@ -11,20 +11,21 @@ struct WeatherResponse: Decodable {
     let cod: String
     let message: Double
     let cnt: Double
-    let list: [Data]
+    let list: [ListData]
     let city: City
 }
 
 extension WeatherResponse {
     
-    struct Data: Decodable {
+    struct ListData: Decodable {
         let dt: Double
-        let main: [Main]
+        let main: Main
         let weather: [Weather]
         let clouds: Clouds
         let wind: Wind
         let visibility: Double
         let pop: Double
+//        let rain: Rain
         let sys: Sys
         let dt_txt: String
     }
@@ -41,7 +42,7 @@ extension WeatherResponse {
     }
 }
 
-extension WeatherResponse.Data {
+extension WeatherResponse.ListData {
     
     struct Main: Decodable {
         let temp: Double
@@ -72,6 +73,10 @@ extension WeatherResponse.Data {
         let gust: Double
     }
     
+//    struct Rain {
+//        let 3h: Double
+//    }
+    
     struct Sys: Decodable {
         let pod: String
     }
@@ -82,30 +87,6 @@ extension WeatherResponse.City {
     struct Coord: Decodable {
         let lat: Double
         let lon: Double
-    }
-}
-
-// MARK: - WeatherResponse+Mapping
-extension WeatherResponse {
-    func toTopViewData() -> TopViewData {
-        // TODO: 가장 최근 데이터를 표출해야함.
-        .init(cityName: city.name,
-              temperature: "",
-              weather: "",
-              maximumTemperature: "",
-              minimumTemperature: "")
-    }
-    
-    func toThreeHourForecastCellData() -> [ThreeHourForecastCellData] {
-        return []
-    }
-    
-    func toDailyForecastCellData() -> [DailyForecastCellData] {
-        return []
-    }
-    
-    func toWeatherExtraInfoCellData() -> [WeatherExtraInfoCellData] {
-        return []
     }
 }
 
