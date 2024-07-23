@@ -55,9 +55,11 @@ final class SearchViewController: BaseViewController {
     override func setupInitialSetting() {
         setupTableViewData()
         setupTableViewDelegate()
+        setupKeyboardObservers()
         viewModel.fetchCityList()
     }
     
+    // MARK: Methods
     func setData(_ text: String) {
         let filteredQueryList = viewModel.searchQueryList.value.filter {
             $0.cityName.contains(text)
@@ -65,12 +67,28 @@ final class SearchViewController: BaseViewController {
         dataSource.accept(filteredQueryList)
     }
     
+    private func setupKeyboardObservers() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillHide),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
+    }
+    
     private func setupTableViewData() {
         dataSource
             .bind(to: queryTableView.rx.items(
                 cellIdentifier: SearchQueryCell.defaultReuseIdentifier,
                 cellType: SearchQueryCell.self)
-            ) { [weak self] index, item, cell in
+            ) { index, item, cell in
                 cell.setupData(item)
             }
             .disposed(by: disposeBag)
@@ -87,5 +105,29 @@ final class SearchViewController: BaseViewController {
                 delegate?.searchButtonTapped(with: data.lat, lon: data.lon)
             }
             .disposed(by: disposeBag)
+    }
+    
+    private func updateTableViewBottomConstraint(with height: CGFloat) {
+        
+        queryTableView.contentInset = .init(top: 0, left: 0, bottom: height, right: 0)
+        
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardHeight = keyboardFrame.cgRectValue.height
+            updateTableViewBottomConstraint(with: keyboardHeight)
+        }
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        updateTableViewBottomConstraint(with: 0)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 }
