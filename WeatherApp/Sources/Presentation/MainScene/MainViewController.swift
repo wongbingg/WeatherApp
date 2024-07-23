@@ -175,7 +175,7 @@ final class MainViewController: BaseViewController {
     private func bindMapData() {
         viewModel.mapData
             .bind { [weak self] coordinate in
-                self?.weatherMapView.addPinAndFocus(at: coordinate.lat, longitude: coordinate.lon)
+                self?.weatherMapView.setPinAndFocus(at: coordinate.lat, longitude: coordinate.lon)
             }
             .disposed(by: disposeBag)
     }

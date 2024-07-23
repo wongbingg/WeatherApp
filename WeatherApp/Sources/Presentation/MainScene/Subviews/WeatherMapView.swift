@@ -22,6 +22,8 @@ final class WeatherMapView: BaseView {
         return mapView
     }()
     
+    private let annotation = MKPointAnnotation()
+    
     // MARK: - Overrides
     override func setupViewHierarchy() {
         self.addSubview(descriptionLabel)
@@ -44,21 +46,23 @@ final class WeatherMapView: BaseView {
         mapView.layer.cornerRadius = 10
         backgroundColor = .white
         self.layer.cornerRadius = 10
+        setPin()
     }
     
     // MARK: - Methods
-    func addPinAndFocus(at latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
+    func setPinAndFocus(at latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
         let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
         
         // 핀 추가
-        let annotation = MKPointAnnotation()
         annotation.coordinate = coordinate
-        annotation.title = "Destination"
-        mapView.addAnnotation(annotation)
         
         // 포커스 이동
         let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
         mapView.setRegion(region, animated: true)
+    }
+    
+    private func setPin() {
+        mapView.addAnnotation(annotation)
     }
 }
 

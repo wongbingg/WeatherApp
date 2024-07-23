@@ -21,7 +21,7 @@ final class MainSceneDIContainer {
     
     func makeSearchViewController() -> SearchViewController {
         let viewModel = makeSearchViewModel()
-        return SearchViewController(viewModel: makeSearchViewModel())
+        return SearchViewController(viewModel: viewModel)
     }
     
     // MARK: - ViewModels
