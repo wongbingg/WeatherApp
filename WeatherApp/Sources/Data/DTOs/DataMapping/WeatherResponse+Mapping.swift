@@ -25,10 +25,16 @@ extension WeatherResponse {
         return twoDaysList.map {
             let date = Date.fromTimestamp($0.dt)
             let koreaDateString = date.toKoreaTimeString(format: "a hh시")
+            var icon =  $0.weather.first?.icon ?? "01d"
+            if icon.last == Character("n") {
+                _ = icon.popLast()
+                icon.append("d")
+            }
+            
             
             return ThreeHourForecastCellData(
                 time: koreaDateString,
-                iconName: $0.weather.first?.icon ?? "01d",
+                iconName: icon,
                 temperature: $0.main.temp.toCelsius()
             )
         }
