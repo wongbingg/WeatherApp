@@ -1,5 +1,5 @@
 //
-//  DailyForecastCell.swift
+//  FiveDayForecastCell.swift
 //  WeatherApp
 //
 //  Created by 이원빈 on 2024/07/22.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class DailyForecastCell: UITableViewCell {
+final class FiveDayForecastCell: UITableViewCell {
     
     // MARK: - UI
     private let mainStackView: UIStackView = {

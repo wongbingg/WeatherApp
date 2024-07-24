@@ -52,11 +52,11 @@
 		AFD54EEB2C4E1877005D91D7 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD54EEA2C4E1877005D91D7 /* BaseView.swift */; };
 		AFD54EED2C4E18E1005D91D7 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD54EEC2C4E18E1005D91D7 /* BaseViewController.swift */; };
 		AFD54EEF2C4E1EFC005D91D7 /* ThreeHourForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD54EEE2C4E1EFC005D91D7 /* ThreeHourForecastView.swift */; };
-		AFD54EF12C4E1F79005D91D7 /* DailyForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD54EF02C4E1F79005D91D7 /* DailyForecastView.swift */; };
+		AFD54EF12C4E1F79005D91D7 /* FiveDayForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD54EF02C4E1F79005D91D7 /* FiveDayForecastView.swift */; };
 		AFD54EF32C4E1FAC005D91D7 /* WeatherMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD54EF22C4E1FAC005D91D7 /* WeatherMapView.swift */; };
 		AFD54EF62C4E2118005D91D7 /* ThreeHourForecastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD54EF52C4E2118005D91D7 /* ThreeHourForecastCell.swift */; };
 		AFD54EF82C4E23A6005D91D7 /* ReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD54EF72C4E23A6005D91D7 /* ReusableCell.swift */; };
-		AFD54EFA2C4E3B3A005D91D7 /* DailyForecastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD54EF92C4E3B3A005D91D7 /* DailyForecastCell.swift */; };
+		AFD54EFA2C4E3B3A005D91D7 /* FiveDayForecastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD54EF92C4E3B3A005D91D7 /* FiveDayForecastCell.swift */; };
 		AFD54EFC2C4E4577005D91D7 /* WeatherExtraInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD54EFB2C4E4577005D91D7 /* WeatherExtraInfoCell.swift */; };
 		AFD54EFE2C4E4A47005D91D7 /* WeatherExtraInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD54EFD2C4E4A47005D91D7 /* WeatherExtraInfoView.swift */; };
 		AFF5818D2C4F3EA800B7ABC8 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF5818C2C4F3EA800B7ABC8 /* Date+.swift */; };
@@ -107,11 +107,11 @@
 		AFD54EEA2C4E1877005D91D7 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		AFD54EEC2C4E18E1005D91D7 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		AFD54EEE2C4E1EFC005D91D7 /* ThreeHourForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeHourForecastView.swift; sourceTree = "<group>"; };
-		AFD54EF02C4E1F79005D91D7 /* DailyForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecastView.swift; sourceTree = "<group>"; };
+		AFD54EF02C4E1F79005D91D7 /* FiveDayForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiveDayForecastView.swift; sourceTree = "<group>"; };
 		AFD54EF22C4E1FAC005D91D7 /* WeatherMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherMapView.swift; sourceTree = "<group>"; };
 		AFD54EF52C4E2118005D91D7 /* ThreeHourForecastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeHourForecastCell.swift; sourceTree = "<group>"; };
 		AFD54EF72C4E23A6005D91D7 /* ReusableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableCell.swift; sourceTree = "<group>"; };
-		AFD54EF92C4E3B3A005D91D7 /* DailyForecastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecastCell.swift; sourceTree = "<group>"; };
+		AFD54EF92C4E3B3A005D91D7 /* FiveDayForecastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiveDayForecastCell.swift; sourceTree = "<group>"; };
 		AFD54EFB2C4E4577005D91D7 /* WeatherExtraInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherExtraInfoCell.swift; sourceTree = "<group>"; };
 		AFD54EFD2C4E4A47005D91D7 /* WeatherExtraInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherExtraInfoView.swift; sourceTree = "<group>"; };
 		AFF5818C2C4F3EA800B7ABC8 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
@@ -346,8 +346,8 @@
 				AFD54EE72C4E16D7005D91D7 /* TopView.swift */,
 				AFD54EEE2C4E1EFC005D91D7 /* ThreeHourForecastView.swift */,
 				AFD54EF52C4E2118005D91D7 /* ThreeHourForecastCell.swift */,
-				AFD54EF02C4E1F79005D91D7 /* DailyForecastView.swift */,
-				AFD54EF92C4E3B3A005D91D7 /* DailyForecastCell.swift */,
+				AFD54EF02C4E1F79005D91D7 /* FiveDayForecastView.swift */,
+				AFD54EF92C4E3B3A005D91D7 /* FiveDayForecastCell.swift */,
 				AFD54EF22C4E1FAC005D91D7 /* WeatherMapView.swift */,
 				AFD54EFD2C4E4A47005D91D7 /* WeatherExtraInfoView.swift */,
 				AFD54EFB2C4E4577005D91D7 /* WeatherExtraInfoCell.swift */,
@@ -458,7 +458,7 @@
 				AFD54EDD2C4DFC50005D91D7 /* DefaultWeatherRepository.swift in Sources */,
 				AFD54EFE2C4E4A47005D91D7 /* WeatherExtraInfoView.swift in Sources */,
 				AF620B692C4FA4EA00120956 /* ThreeHourForecastCellData.swift in Sources */,
-				AFD54EF12C4E1F79005D91D7 /* DailyForecastView.swift in Sources */,
+				AFD54EF12C4E1F79005D91D7 /* FiveDayForecastView.swift in Sources */,
 				AFD54EF62C4E2118005D91D7 /* ThreeHourForecastCell.swift in Sources */,
 				AF6403352C507BC700508DB5 /* LoadingView.swift in Sources */,
 				AF620B3D2C4F5ED300120956 /* Int+.swift in Sources */,
@@ -473,7 +473,7 @@
 				AFD54EEF2C4E1EFC005D91D7 /* ThreeHourForecastView.swift in Sources */,
 				AFD54EFC2C4E4577005D91D7 /* WeatherExtraInfoCell.swift in Sources */,
 				AF620B412C4F6BD500120956 /* MainSceneDIContainer.swift in Sources */,
-				AFD54EFA2C4E3B3A005D91D7 /* DailyForecastCell.swift in Sources */,
+				AFD54EFA2C4E3B3A005D91D7 /* FiveDayForecastCell.swift in Sources */,
 				AFD54EF82C4E23A6005D91D7 /* ReusableCell.swift in Sources */,
 				AFD54EE12C4E1231005D91D7 /* Encodable+.swift in Sources */,
 				AFF5818F2C4F3EF700B7ABC8 /* Double+.swift in Sources */,

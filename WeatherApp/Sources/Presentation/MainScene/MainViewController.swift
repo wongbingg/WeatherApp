@@ -36,7 +36,7 @@ final class MainViewController: BaseViewController {
     private let searchResultController: SearchViewController
     private let topView = TopView()
     private let threeHourForecastView = ThreeHourForecastView()
-    private let dailyForecastView = DailyForecastView()
+    private let fiveDayForecastView = FiveDayForecastView()
     private let weatherMapView = WeatherMapView()
     private let weatherExtraInfoView = WeatherExtraInfoView()
     
@@ -61,7 +61,7 @@ final class MainViewController: BaseViewController {
         [
             topView,
             threeHourForecastView,
-            dailyForecastView,
+            fiveDayForecastView,
             weatherMapView,
             weatherExtraInfoView
         ]
@@ -84,7 +84,7 @@ final class MainViewController: BaseViewController {
             $0.width.equalToSuperview()
             $0.height.equalTo(120)
         }
-        dailyForecastView.snp.makeConstraints {
+        fiveDayForecastView.snp.makeConstraints {
             $0.width.equalToSuperview()
             $0.height.equalTo(230)
         }
@@ -167,7 +167,7 @@ final class MainViewController: BaseViewController {
     private func bindDailyForecastCellData() {
         viewModel.dailyForecastCellData
             .bind { [weak self] list in
-                self?.dailyForecastView.setupData(list)
+                self?.fiveDayForecastView.setupData(list)
             }
             .disposed(by: disposeBag)
     }

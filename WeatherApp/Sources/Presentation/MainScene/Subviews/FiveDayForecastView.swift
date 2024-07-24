@@ -1,5 +1,5 @@
 //
-//  DailyForecastView.swift
+//  FiveDayForecastView.swift
 //  WeatherApp
 //
 //  Created by 이원빈 on 2024/07/22.
@@ -12,7 +12,7 @@ import RxRelay
 import RxCocoa
 import SnapKit
 
-final class DailyForecastView: BaseView {
+final class FiveDayForecastView: BaseView {
     
     private var dataSource: BehaviorRelay<[DailyForecastCellData]> = .init(value: [])
     private var disposeBag = DisposeBag()
@@ -26,7 +26,7 @@ final class DailyForecastView: BaseView {
     
     private let weatherTableView: UITableView = {
         let tableView = UITableView()
-        tableView.register(DailyForecastCell.self)
+        tableView.register(FiveDayForecastCell.self)
         tableView.showsVerticalScrollIndicator = false
         tableView.backgroundColor = .lightGray
         tableView.isScrollEnabled = false
@@ -62,8 +62,8 @@ final class DailyForecastView: BaseView {
     private func setupTableViewData() {
         dataSource
             .bind(to: weatherTableView.rx.items(
-                cellIdentifier: DailyForecastCell.defaultReuseIdentifier,
-                cellType: DailyForecastCell.self)
+                cellIdentifier: FiveDayForecastCell.defaultReuseIdentifier,
+                cellType: FiveDayForecastCell.self)
             ) { [weak self] index, item, cell in
                 
                 cell.setupData(item)
