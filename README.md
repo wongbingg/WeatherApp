@@ -124,7 +124,7 @@ WeatherApp
 ### 홈 화면
 |메인화면|검색화면|
 |:---:|:---:|
-|<img src="https://hackmd.io/_uploads/S1tdbVCuR.png" width="200">|<img src="https://hackmd.io/_uploads/Byd7fECuC.png" width="200">|
+|<img src="https://github.com/user-attachments/assets/7b1b419b-03ec-4ec2-b454-1387751448d0" width="200">|<img src="https://github.com/user-attachments/assets/4be02e4e-f6ec-413f-9eea-b452010cfa23" width="200">|
 
 <br>
 
