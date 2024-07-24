@@ -14,10 +14,13 @@ final class DailyForecastCell: UITableViewCell {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.alignment = .center
+        stackView.distribution = .fillProportionally
+        stackView.spacing = 30
         return stackView
     }()
     private let dayLabel: UILabel = {
         let label = UILabel()
+        label.setContentHuggingPriority(.required, for: .horizontal)
         return label
     }()
     
@@ -29,11 +32,13 @@ final class DailyForecastCell: UITableViewCell {
     
     private let minimumTemperatureLabel: UILabel = {
         let label = UILabel()
+        label.textAlignment = .right
         return label
     }()
     
     private let maximumTemperatureLabel: UILabel = {
         let label = UILabel()
+        label.setContentHuggingPriority(.required, for: .horizontal)
         return label
     }()
     
