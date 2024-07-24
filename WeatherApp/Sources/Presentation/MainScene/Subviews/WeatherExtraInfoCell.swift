@@ -48,7 +48,6 @@ final class WeatherExtraInfoCell: UICollectionViewCell {
     }
     
     // MARK: - Methods
-    
     func setupData(_ data: WeatherExtraInfoCellData) {
         headerLabel.text = data.header
         valueLabel.text = data.value

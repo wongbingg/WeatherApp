@@ -52,10 +52,17 @@ final class FiveDayForecastCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Methods
+    func setupData(_ data: FiveDayForecastCellData) {
+        dayLabel.text = data.day
+        iconImage.image = UIImage(named: data.iconName)
+        minimumTemperatureLabel.text = "최소: " + data.minimumTemperature + "º"
+        maximumTemperatureLabel.text = "최대: " + data.maximumTemperature + "º"
+    }
+    
     private func commonInit() {
         setupViewHierarchy()
         setupViewConstraints()
-        setupInitialSetting()
     }
     
     private func setupViewHierarchy() {
@@ -78,15 +85,5 @@ final class FiveDayForecastCell: UITableViewCell {
         iconImage.snp.makeConstraints {
             $0.width.height.equalTo(30)
         }
-    }
-    
-    private func setupInitialSetting() {
-    }
-    
-    func setupData(_ data: FiveDayForecastCellData) {
-        dayLabel.text = data.day
-        iconImage.image = UIImage(named: data.iconName)
-        minimumTemperatureLabel.text = "최소: " + data.minimumTemperature + "º"
-        maximumTemperatureLabel.text = "최대: " + data.maximumTemperature + "º"
     }
 }

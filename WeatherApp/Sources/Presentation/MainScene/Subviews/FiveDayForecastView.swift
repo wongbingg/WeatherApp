@@ -35,7 +35,6 @@ final class FiveDayForecastView: BaseView {
     }()
     
     // MARK: - Overrides
-    
     override func setupViewHierarchy() {
         self.addSubview(descriptionLabel)
         self.addSubview(weatherTableView)
@@ -59,6 +58,12 @@ final class FiveDayForecastView: BaseView {
         self.layer.cornerRadius = 10
     }
     
+    // MARK: - Methods
+    func setupData(_ data: [FiveDayForecastCellData]) {
+        descriptionLabel.text = "5일간의 일기예보"
+        dataSource.accept(data)
+    }
+    
     private func setupTableViewData() {
         dataSource
             .bind(to: weatherTableView.rx.items(
@@ -77,10 +82,5 @@ final class FiveDayForecastView: BaseView {
                 self?.weatherTableView.deselectRow(at: indexPath, animated: true)
             }
             .disposed(by: disposeBag)
-    }
-    
-    func setupData(_ data: [FiveDayForecastCellData]) {
-        descriptionLabel.text = "5일간의 일기예보"
-        dataSource.accept(data)
     }
 }

@@ -16,6 +16,7 @@ final class WeatherExtraInfoView: BaseView {
     private var dataSource: BehaviorRelay<[WeatherExtraInfoCellData]> = .init(value: [])
     private var disposeBag = DisposeBag()
     
+    // MARK: - UI
     private let weatherCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: UIScreen.main.bounds.width/2 - 20, height: UIScreen.main.bounds.width/2 - 20)
@@ -46,6 +47,11 @@ final class WeatherExtraInfoView: BaseView {
     }
     
     // MARK: - Methods
+    func setupData(_ data: [WeatherExtraInfoCellData]) {
+        
+        dataSource.accept(data)
+    }
+    
     private func setupCollectionViewData() {
         dataSource
             .bind(to: weatherCollectionView.rx.items(
@@ -57,10 +63,5 @@ final class WeatherExtraInfoView: BaseView {
                 cell.setupData(item)
             }
             .disposed(by: disposeBag)
-    }
-    
-    func setupData(_ data: [WeatherExtraInfoCellData]) {
-        
-        dataSource.accept(data)
     }
 }

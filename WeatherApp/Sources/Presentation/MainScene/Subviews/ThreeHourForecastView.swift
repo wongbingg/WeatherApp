@@ -37,7 +37,6 @@ final class ThreeHourForecastView: BaseView {
     }()
     
     // MARK: - Overrides
-    
     override func setupViewHierarchy() {
         self.addSubview(descriptionLabel)
         self.addSubview(weatherCollectionView)

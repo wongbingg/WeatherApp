@@ -15,7 +15,7 @@ final class MainViewController: BaseViewController {
     private let viewModel: MainViewModel
     private var disposeBag = DisposeBag()
     
-    // MARK: UI
+    // MARK: - UI
     private let mainScrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.showsVerticalScrollIndicator = false
@@ -40,7 +40,7 @@ final class MainViewController: BaseViewController {
     private let weatherMapView = WeatherMapView()
     private let weatherExtraInfoView = WeatherExtraInfoView()
     
-    // MARK: Initializers
+    // MARK: - Initializers
     init(viewModel: MainViewModel, searchResultController: SearchViewController) {
         self.viewModel = viewModel
         self.searchResultController = searchResultController
@@ -52,7 +52,7 @@ final class MainViewController: BaseViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: Overrides
+    // MARK: - Overrides
     override func setupViewHierarchy() {
         
         view.addSubview(mainScrollView)

@@ -22,7 +22,7 @@ final class SearchViewController: BaseViewController {
     private let viewModel: SearchViewModel
     weak var delegate: SearchViewControllerDelegate?
     
-    // MARK: UI
+    // MARK: - UI
     private let queryTableView: UITableView = {
         let tableView = UITableView()
         tableView.register(SearchQueryCell.self)
@@ -31,7 +31,7 @@ final class SearchViewController: BaseViewController {
         return tableView
     }()
     
-    // MARK: Initializers
+    // MARK: - Initializers
     init(viewModel: SearchViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -41,7 +41,11 @@ final class SearchViewController: BaseViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: Overrides
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    // MARK: - Overrides
     override func setupViewHierarchy() {
         view.addSubview(queryTableView)
     }
@@ -59,7 +63,7 @@ final class SearchViewController: BaseViewController {
         viewModel.fetchCityList()
     }
     
-    // MARK: Methods
+    // MARK: - Methods
     func setData(_ text: String) {
         let filteredQueryList = viewModel.searchQueryList.value.filter {
             $0.cityName.contains(text)
@@ -125,9 +129,5 @@ final class SearchViewController: BaseViewController {
 
     @objc func keyboardWillHide(notification: NSNotification) {
         updateTableViewBottomConstraint(with: 0)
-    }
-    
-    deinit {
-        NotificationCenter.default.removeObserver(self)
     }
 }

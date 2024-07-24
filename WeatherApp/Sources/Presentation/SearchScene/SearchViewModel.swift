@@ -18,7 +18,8 @@ protocol SearchViewModelOutput {
 
 protocol SearchViewModel: SearchViewModelInput, SearchViewModelOutput {}
 
-// MARK: Outputs
+// MARK: - Outputs
+
 struct DefaultSearchViewModel: SearchViewModel {
     
     var searchQueryList: RxRelay.BehaviorRelay<[SearchQueryCellData]> = .init(value: [])
@@ -31,7 +32,8 @@ struct DefaultSearchViewModel: SearchViewModel {
     }
 }
 
-// MARK: Inputs
+// MARK: - Inputs
+
 extension DefaultSearchViewModel {
     
     func fetchCityList() {

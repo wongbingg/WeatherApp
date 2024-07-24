@@ -43,6 +43,13 @@ final class ThreeHourForecastCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Methods
+    func setupData(_ data: ThreeHourForecastCellData) {
+        timeLabel.text = data.time
+        iconImage.image = UIImage(named: data.iconName)
+        temperatureLabel.text = data.temperature + "º"
+    }
+    
     private func commonInit() {
         setupViewHierarchy()
         setupViewConstraints()
@@ -67,11 +74,5 @@ final class ThreeHourForecastCell: UICollectionViewCell {
         iconImage.snp.makeConstraints {
             $0.width.height.equalTo(30)
         }
-    }
-    
-    func setupData(_ data: ThreeHourForecastCellData) {
-        timeLabel.text = data.time
-        iconImage.image = UIImage(named: data.iconName)
-        temperatureLabel.text = data.temperature + "º"
     }
 }

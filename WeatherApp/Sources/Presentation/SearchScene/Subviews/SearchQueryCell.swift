@@ -7,17 +7,6 @@
 
 import UIKit
 
-struct SearchQueryCellData {
-    let cityName: String
-    let countryCode: String
-    let lat: Double
-    let lon: Double
-    
-    static func stub() -> Self {
-        .init(cityName: "Korea", countryCode: "Seoul", lat: 0, lon: 0)
-    }
-}
-
 final class SearchQueryCell: UITableViewCell {
     
     // MARK: - UI
@@ -50,10 +39,15 @@ final class SearchQueryCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Methods
+    func setupData(_ data: SearchQueryCellData) {
+        cityNameLabel.text = data.cityName
+        countryCodeLabel.text = data.countryCode
+    }
+    
     private func commonInit() {
         setupViewHierarchy()
         setupViewConstraints()
-        setupInitialSetting()
     }
     
     private func setupViewHierarchy() {
@@ -71,13 +65,5 @@ final class SearchQueryCell: UITableViewCell {
         mainStackView.snp.makeConstraints {
             $0.top.bottom.leading.trailing.equalToSuperview()
         }
-    }
-    
-    private func setupInitialSetting() {
-    }
-    
-    func setupData(_ data: SearchQueryCellData) {
-        cityNameLabel.text = data.cityName
-        countryCodeLabel.text = data.countryCode
     }
 }

@@ -24,7 +24,8 @@ protocol MainViewModelOutput {
 
 protocol MainViewModel: MainViewModelInput, MainViewModelOutput {}
 
-// MARK: Outputs
+// MARK: - Outputs
+
 struct DefaultMainViewModel: MainViewModel {
     var searchText: BehaviorRelay<String> = .init(value: "")
     var topViewData: BehaviorRelay<TopViewData> = .init(value: .stub())
@@ -41,7 +42,8 @@ struct DefaultMainViewModel: MainViewModel {
     }
 }
 
-// MARK: Inputs
+// MARK: - Inputs
+
 extension DefaultMainViewModel {
     
     func fetchWeather(param: WeatherRequest) {
