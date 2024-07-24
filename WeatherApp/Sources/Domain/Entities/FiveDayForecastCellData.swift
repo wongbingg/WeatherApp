@@ -5,7 +5,7 @@
 //  Created by 이원빈 on 2024/07/23.
 //
 
-struct FiveDayForecastCellData {
+struct FiveDayForecastCellData: Equatable {
     let day: String
     let iconName: String
     let minimumTemperature: String

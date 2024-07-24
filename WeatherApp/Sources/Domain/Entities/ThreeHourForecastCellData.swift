@@ -5,7 +5,7 @@
 //  Created by 이원빈 on 2024/07/23.
 //
 
-struct ThreeHourForecastCellData {
+struct ThreeHourForecastCellData: Equatable {
     let time: String
     let iconName: String
     let temperature: String

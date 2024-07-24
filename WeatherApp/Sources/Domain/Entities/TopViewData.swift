@@ -5,7 +5,7 @@
 //  Created by 이원빈 on 2024/07/23.
 //
 
-struct TopViewData {
+struct TopViewData: Equatable {
     let cityName: String
     let temperature: String
     let weather: String

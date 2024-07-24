@@ -7,17 +7,21 @@
 
 import Foundation
 
-struct WeatherResponse: Decodable {
+struct WeatherResponse: Codable, Equatable {
     let cod: String
     let message: Double
     let cnt: Double
     let list: [ListData]
     let city: City
+    
+    static func stub(cod: String = "0", message: Double = 0, cnt: Double = 0, list: [ListData] = [], city: City = .stub()) -> Self {
+        .init(cod: cod, message: message, cnt: cnt, list: list, city: city)
+    }
 }
 
 extension WeatherResponse {
     
-    struct ListData: Decodable {
+    struct ListData: Codable, Equatable {
         let dt: Double
         let main: Main
         let weather: [Weather]
@@ -30,7 +34,7 @@ extension WeatherResponse {
         let dt_txt: String
     }
     
-    struct City: Decodable {
+    struct City: Codable, Equatable {
         let id: Double
         let name: String
         let coord: Coord
@@ -39,12 +43,16 @@ extension WeatherResponse {
         let timezone: Double
         let sunrise: Double
         let sunset: Double
+        
+        static func stub(id: Double = 0, name: String = "", coord: Coord = .init(lat: 0, lon: 0), country: String = "", population: Double = 0, timezone: Double = 0, sunrise: Double = 0, sunset: Double = 0) -> Self {
+            .init(id: id, name: name, coord: coord, country: country, population: population, timezone: timezone, sunrise: sunrise, sunset: sunset)
+        }
     }
 }
 
 extension WeatherResponse.ListData {
     
-    struct Main: Decodable {
+    struct Main: Codable, Equatable {
         let temp: Double
         let feels_like: Double
         let temp_min: Double
@@ -56,18 +64,18 @@ extension WeatherResponse.ListData {
         let temp_kf: Double
     }
     
-    struct Weather: Decodable {
+    struct Weather: Codable, Equatable {
         let id: Double
         let main: String
         let description: String
         let icon: String
     }
     
-    struct Clouds: Decodable {
+    struct Clouds: Codable, Equatable {
         let all: Double
     }
     
-    struct Wind: Decodable {
+    struct Wind: Codable, Equatable {
         let speed: Double
         let deg: Double
         let gust: Double
@@ -77,14 +85,14 @@ extension WeatherResponse.ListData {
 //        let 3h: Double
 //    }
     
-    struct Sys: Decodable {
+    struct Sys: Codable, Equatable {
         let pod: String
     }
 }
 
 extension WeatherResponse.City {
     
-    struct Coord: Decodable {
+    struct Coord: Codable, Equatable {
         let lat: Double
         let lon: Double
     }
