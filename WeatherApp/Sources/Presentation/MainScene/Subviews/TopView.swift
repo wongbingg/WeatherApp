@@ -91,10 +91,6 @@ final class TopView: BaseView {
         }
     }
     
-    override func setupInitialSetting() {
-//        mainStackView.backgroundColor = .white
-    }
-    
     // MARK: - Methods
     func setupData(_ data: TopViewData) {
         cityNameLabel.text = data.cityName

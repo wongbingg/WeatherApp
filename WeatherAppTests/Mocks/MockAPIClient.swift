@@ -22,7 +22,6 @@ final class MockAPIClient: APIClientProtocol {
                 single(.failure(self.error))
             } else {
                 do {
-//                    let data = try JSONSerialization.data(withJSONObject: self.responseData, options: [])
                     let decodedObject = try JSONDecoder().decode(T.self, from: self.responseData)
                     single(.success(decodedObject))
                 } catch let decodeError {

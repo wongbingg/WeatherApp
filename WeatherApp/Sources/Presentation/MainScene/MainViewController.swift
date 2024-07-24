@@ -177,16 +177,14 @@ final class MainViewController: BaseViewController {
     }
     
     private func setupSearchController() {
-        // Search Controller 설정
+
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "검색어를 입력하세요"
         
-        // 네비게이션 아이템에 Search Controller 추가
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         
-        // 검색창이 사라지지 않도록 설정
         definesPresentationContext = true
     }
 }

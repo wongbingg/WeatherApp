@@ -52,11 +52,8 @@ final class WeatherMapView: BaseView {
     // MARK: - Methods
     func setPinAndFocus(at latitude: CLLocationDegrees, longitude: CLLocationDegrees) {
         let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-        
-        // 핀 추가
         annotation.coordinate = coordinate
         
-        // 포커스 이동
         let region = MKCoordinateRegion(center: coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
         mapView.setRegion(region, animated: true)
     }
