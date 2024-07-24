@@ -102,7 +102,7 @@ final class MainViewController: BaseViewController {
         view.backgroundColor = .lightGray
         setupSearchController()
         bind()
-        
+        showLoadingView()
         viewModel.fetchWeather(
             param: .init(
                 lat: 36.783611,
@@ -184,6 +184,7 @@ final class MainViewController: BaseViewController {
         viewModel.weatherExtraInfoCellData
             .bind { [weak self] list in
                 self?.weatherExtraInfoView.setupData(list)
+                self?.hideLoadingView()
             }
             .disposed(by: disposeBag)
     }
@@ -202,6 +203,7 @@ extension MainViewController: UISearchResultsUpdating {
 extension MainViewController: SearchViewControllerDelegate {
     
     func searchButtonTapped(with lat: Double, lon: Double) {
+        showLoadingView()
         viewModel.fetchWeather(
             param: .init(
                 lat: lat,

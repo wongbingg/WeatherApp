@@ -25,6 +25,8 @@
 		AF620B692C4FA4EA00120956 /* ThreeHourForecastCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF620B682C4FA4EA00120956 /* ThreeHourForecastCellData.swift */; };
 		AF620B6B2C4FA50D00120956 /* DailyForecastCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF620B6A2C4FA50D00120956 /* DailyForecastCellData.swift */; };
 		AF620B6D2C4FA52A00120956 /* WeatherExtraInfoCellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF620B6C2C4FA52A00120956 /* WeatherExtraInfoCellData.swift */; };
+		AF6403352C507BC700508DB5 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6403342C507BC700508DB5 /* LoadingView.swift */; };
+		AF6403372C5086BD00508DB5 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6403362C5086BD00508DB5 /* UIViewController+.swift */; };
 		AF750E0E2C4E894C00C28D21 /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF750E0D2C4E894C00C28D21 /* MainViewModel.swift */; };
 		AF750E122C4E91A000C28D21 /* FetchWeatherUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF750E112C4E91A000C28D21 /* FetchWeatherUseCase.swift */; };
 		AF750E142C4F090800C28D21 /* Console.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF750E132C4F090800C28D21 /* Console.swift */; };
@@ -81,6 +83,8 @@
 		AF620B682C4FA4EA00120956 /* ThreeHourForecastCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeHourForecastCellData.swift; sourceTree = "<group>"; };
 		AF620B6A2C4FA50D00120956 /* DailyForecastCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecastCellData.swift; sourceTree = "<group>"; };
 		AF620B6C2C4FA52A00120956 /* WeatherExtraInfoCellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherExtraInfoCellData.swift; sourceTree = "<group>"; };
+		AF6403342C507BC700508DB5 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		AF6403362C5086BD00508DB5 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		AF750E0D2C4E894C00C28D21 /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		AF750E112C4E91A000C28D21 /* FetchWeatherUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchWeatherUseCase.swift; sourceTree = "<group>"; };
 		AF750E132C4F090800C28D21 /* Console.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Console.swift; sourceTree = "<group>"; };
@@ -318,6 +322,7 @@
 				AFF5818C2C4F3EA800B7ABC8 /* Date+.swift */,
 				AFF5818E2C4F3EF700B7ABC8 /* Double+.swift */,
 				AF620B3C2C4F5ED300120956 /* Int+.swift */,
+				AF6403362C5086BD00508DB5 /* UIViewController+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -329,6 +334,7 @@
 				AFD54EEA2C4E1877005D91D7 /* BaseView.swift */,
 				AFD54EEC2C4E18E1005D91D7 /* BaseViewController.swift */,
 				AFD54EF72C4E23A6005D91D7 /* ReusableCell.swift */,
+				AF6403342C507BC700508DB5 /* LoadingView.swift */,
 				AF750E132C4F090800C28D21 /* Console.swift */,
 			);
 			path = Utils;
@@ -454,11 +460,13 @@
 				AF620B692C4FA4EA00120956 /* ThreeHourForecastCellData.swift in Sources */,
 				AFD54EF12C4E1F79005D91D7 /* DailyForecastView.swift in Sources */,
 				AFD54EF62C4E2118005D91D7 /* ThreeHourForecastCell.swift in Sources */,
+				AF6403352C507BC700508DB5 /* LoadingView.swift in Sources */,
 				AF620B3D2C4F5ED300120956 /* Int+.swift in Sources */,
 				AF620B5F2C4F91F200120956 /* BundleInfo.swift in Sources */,
 				AFD54E7B2C4DEC9C005D91D7 /* MainViewController.swift in Sources */,
 				AFD54E772C4DEC9C005D91D7 /* AppDelegate.swift in Sources */,
 				AFF5818D2C4F3EA800B7ABC8 /* Date+.swift in Sources */,
+				AF6403372C5086BD00508DB5 /* UIViewController+.swift in Sources */,
 				AF620B562C4F819800120956 /* DefaultCityRepository.swift in Sources */,
 				AF620B4C2C4F734400120956 /* SearchViewController.swift in Sources */,
 				AFD54EEB2C4E1877005D91D7 /* BaseView.swift in Sources */,
