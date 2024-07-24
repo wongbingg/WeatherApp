@@ -26,11 +26,11 @@ extension WeatherResponse {
             let date = Date.fromTimestamp($0.dt)
             let koreaDateString = date.toKoreaTimeString(format: "a hh시")
             var icon =  $0.weather.first?.icon ?? "01d"
+            
             if icon.last == Character("n") {
                 _ = icon.popLast()
                 icon.append("d")
             }
-            
             
             return ThreeHourForecastCellData(
                 time: koreaDateString,

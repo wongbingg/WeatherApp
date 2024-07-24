@@ -23,7 +23,7 @@ final class DefaultCityRepository: CityRepository {
             return cityList
         } catch {
             // TODO: 오류방출
-            Console.error(error.localizedDescription)
+            Console.error(error.localizedDescription + " --- \(#function)")
             return []
         }
     }
