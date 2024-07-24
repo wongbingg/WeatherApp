@@ -40,10 +40,10 @@ extension WeatherResponse {
         }
     }
     
-    func toDailyForecastCellData() -> [DailyForecastCellData] {
+    func toDailyForecastCellData() -> [FiveDayForecastCellData] {
         var standardDate = Date()
         var tempList = [Double]()
-        var dataList = [DailyForecastCellData]()
+        var dataList = [FiveDayForecastCellData]()
         
         list.forEach {
             let targetDate = Date.fromTimestamp($0.dt)
@@ -54,7 +54,7 @@ extension WeatherResponse {
                 let maxTemp = tempList.max()?.toCelsius() ?? "NONE"
                 let minTemp = tempList.min()?.toCelsius() ?? "NONE"
                 
-                let cellData = DailyForecastCellData(
+                let cellData = FiveDayForecastCellData(
                     day: standardDate.toKoreaTimeString(format: "E"),
                     iconName: "01d",
                     minimumTemperature: minTemp,
@@ -67,7 +67,7 @@ extension WeatherResponse {
         let maxTemp = tempList.max()?.toCelsius() ?? "NONE"
         let minTemp = tempList.min()?.toCelsius() ?? "NONE"
         
-        let cellData = DailyForecastCellData(
+        let cellData = FiveDayForecastCellData(
             day: standardDate.toKoreaTimeString(format: "E"),
             iconName: "01d",
             minimumTemperature: minTemp,

@@ -17,7 +17,7 @@ protocol MainViewModelOutput {
     var searchText: BehaviorRelay<String> { get }
     var topViewData: BehaviorRelay<TopViewData> { get }
     var threeHourForecastCellData: BehaviorRelay<[ThreeHourForecastCellData]> { get }
-    var dailyForecastCellData: BehaviorRelay<[DailyForecastCellData]> { get }
+    var dailyForecastCellData: BehaviorRelay<[FiveDayForecastCellData]> { get }
     var mapData: BehaviorRelay<(lat: Double, lon: Double)> { get }
     var weatherExtraInfoCellData: BehaviorRelay<[WeatherExtraInfoCellData]> { get }
 }
@@ -29,7 +29,7 @@ struct DefaultMainViewModel: MainViewModel {
     var searchText: BehaviorRelay<String> = .init(value: "")
     var topViewData: BehaviorRelay<TopViewData> = .init(value: .stub())
     var threeHourForecastCellData: BehaviorRelay<[ThreeHourForecastCellData]> = .init(value: [])
-    var dailyForecastCellData: BehaviorRelay<[DailyForecastCellData]> = .init(value: [])
+    var dailyForecastCellData: BehaviorRelay<[FiveDayForecastCellData]> = .init(value: [])
     var mapData: BehaviorRelay<(lat: Double, lon: Double)> = .init(value: (0,0))
     var weatherExtraInfoCellData: BehaviorRelay<[WeatherExtraInfoCellData]> = .init(value: [])
     

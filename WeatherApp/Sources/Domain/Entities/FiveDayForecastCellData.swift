@@ -1,11 +1,11 @@
 //
-//  DailyForecastCellData.swift
+//  FiveDayForecastCellData.swift
 //  WeatherApp
 //
 //  Created by 이원빈 on 2024/07/23.
 //
 
-struct DailyForecastCellData {
+struct FiveDayForecastCellData {
     let day: String
     let iconName: String
     let minimumTemperature: String

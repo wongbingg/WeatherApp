@@ -14,7 +14,7 @@ import SnapKit
 
 final class FiveDayForecastView: BaseView {
     
-    private var dataSource: BehaviorRelay<[DailyForecastCellData]> = .init(value: [])
+    private var dataSource: BehaviorRelay<[FiveDayForecastCellData]> = .init(value: [])
     private var disposeBag = DisposeBag()
     
     // MARK: - UI
@@ -79,7 +79,7 @@ final class FiveDayForecastView: BaseView {
             .disposed(by: disposeBag)
     }
     
-    func setupData(_ data: [DailyForecastCellData]) {
+    func setupData(_ data: [FiveDayForecastCellData]) {
         descriptionLabel.text = "5일간의 일기예보"
         dataSource.accept(data)
     }

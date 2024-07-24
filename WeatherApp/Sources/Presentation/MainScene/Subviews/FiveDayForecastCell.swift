@@ -83,7 +83,7 @@ final class FiveDayForecastCell: UITableViewCell {
     private func setupInitialSetting() {
     }
     
-    func setupData(_ data: DailyForecastCellData) {
+    func setupData(_ data: FiveDayForecastCellData) {
         dayLabel.text = data.day
         iconImage.image = UIImage(named: data.iconName)
         minimumTemperatureLabel.text = "최소: " + data.minimumTemperature + "º"
